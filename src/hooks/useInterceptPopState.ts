@@ -72,9 +72,9 @@ function createHandlePopState(
   let dispatchedState: unknown;
 
   return (nextState: any = {}): boolean => {
-    const token: string | undefined = nextState.__next_navigation_guard_token;
+    const token: string | undefined = nextState?.__next_navigation_guard_token;
     const nextIndex: number =
-      Number(nextState.__next_navigation_guard_stack_index) || 0;
+      Number(nextState?.__next_navigation_guard_stack_index) || 0;
 
     if (!token || token !== renderedStateRef.current.token) {
       if (DEBUG)
